@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema(
     learningLanguage: { type: String, default: "" },
     location: { type: String, default: "" },
     isOnboarded: { type: Boolean, default: false },
-    friends: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+    friends: [{ type: mongoose.Schema.Types.ObjectId, ref: "User", }],
   },
   { timestamps: true }
 );
