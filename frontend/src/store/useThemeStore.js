@@ -1,9 +1,9 @@
 import { create } from "zustand";
 
 export const useThemeStore = create((set) => ({
-  theme: localStorage.getItem("streamify-theme") || "light",
+  theme: localStorage.getItem("LinkUp-theme") || "light",
   setTheme: (theme) => {
-    localStorage.setItem("streamify-theme", theme);
+    localStorage.setItem("LinkUp-theme", theme);
     set({ theme });
   },
 }));
