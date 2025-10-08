@@ -1,41 +1,37 @@
 import User from "../models/User.js";
+import FriendRequest from "../models/FriendRequest.js";
 
-export async function getRecommendedUsers(req, res){
-    try {
-        const currentUserId = req.user.id;
-        const currentUser = req.user
+export async function getRecommendedUsers(req, res) {
+  try {
+    const currentUserId = req.user.id;
+    const currentUser = req.user;
 
-        const recommendedUsers = await User.find({
-            $and:[
-                {_id: {$ne: currentUserId}},
-                {$id: {$nin: currentUser.friends}},
-                {isOnboarded:true},
-            ]
-        })
-        res.status(200).json(recommendedUsers)
-    } catch (error) {
-        console.error("Error in getRecommendedUsers controller", error.message);
-        res.status(500).json({message: "Internal server Error"})
-        
-    }
+    const recommendedUsers = await User.find({
+      $and: [
+        { _id: { $ne: currentUserId } }, //exclude current user
+        { _id: { $nin: currentUser.friends } }, // exclude current user's friends
+        { isOnboarded: true },
+      ],
+    });
+    res.status(200).json(recommendedUsers);
+  } catch (error) {
+    console.error("Error in getRecommendedUsers controller", error.message);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
 }
 
-export async function getMyFriends(req, res){
-    try {
-        const user = await User.findById(req.user.id)
-        .select("friends")
-        .populate("friends","fillName profilePic nativeLanguage learningLanguage")
+export async function getMyFriends(req, res) {
+  try {
+    const user = await User.findById(req.user.id)
+      .select("friends")
+      .populate("friends", "fullName profilePic nativeLanguage learningLanguage");
 
-
-        res.status(200).json(user.friends);
-
-    } catch (error) {
-        console.error("Error in getMyFriends controller",error.message);
-        res.status(500).json({message: "Internal Server Error"});
-        
-    }
+    res.status(200).json(user.friends);
+  } catch (error) {
+    console.error("Error in getMyFriends controller", error.message);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
 }
-
 
 export async function sendFriendRequest(req, res) {
   try {
@@ -83,7 +79,6 @@ export async function sendFriendRequest(req, res) {
   }
 }
 
-
 export async function acceptFriendRequest(req, res) {
   try {
     const { id: requestId } = req.params;
@@ -119,8 +114,6 @@ export async function acceptFriendRequest(req, res) {
   }
 }
 
-
-
 export async function getFriendRequests(req, res) {
   try {
     const incomingReqs = await FriendRequest.find({
@@ -152,5 +145,4 @@ export async function getOutgoingFriendReqs(req, res) {
     console.log("Error in getOutgoingFriendReqs controller", error.message);
     res.status(500).json({ message: "Internal Server Error" });
   }
-  
 }
