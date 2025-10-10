@@ -1,7 +1,5 @@
-<h1 align="center">
-  <img src="/path-to-your-logo.png" alt="LinkUp Logo" width="30" style="vertical-align: middle; margin-right: 10px;" />
-  LinkUp – A Language Exchange Chat & Video Platform
-</h1>
+## <h1 align="center">  LinkUp – A Language Exchange Chat & Video Platform </h1>
+## 🔗 [Live Demo](https://sphere-stock-market-platform.vercel.app) /Click The Banner Img --> soon
 
 
 
@@ -12,7 +10,7 @@
 </p>
 
 <p align="center">
-  <img src="/frontend/public/screenshot-for-readme.png" alt="App Screenshot" width="80%" />
+  <img src="/frontend/public/image.png" alt="App Screenshot" width="100%" />
 </p>
 
 ---
@@ -87,7 +85,7 @@ NODE_ENV=development
 
 ## 🧪 Getting Started (Local Setup)
   ### 1️⃣ Clone the Repository
-        git clone https://github.com/yourusername/linkup.git
+        https://github.com/shubhankarchdas/LinkUp.git
         cd linkup 
 
   ### 2️⃣ Install & Run Backend
