@@ -2,6 +2,10 @@
 ## 🔗 [Live Demo](https://sphere-stock-market-platform.vercel.app) /Click The Banner Img --> soon
 
 
+<p align="center">
+  <img src="/frontend/public/image.jpg" alt="App Screenshot" width="100%" />
+  <img src="/frontend/public/image.gif" alt="App Screenshot" width="100%" />
+</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Fullstack-MERN-blueviolet?style=for-the-badge" />
@@ -9,9 +13,6 @@
   <img src="https://img.shields.io/badge/Styled-With%20Tailwind%20%26%20DaisyUI-pink?style=for-the-badge" />
 </p>
 
-<p align="center">
-  <img src="/frontend/public/image.png" alt="App Screenshot" width="100%" />
-</p>
 
 ---
 
